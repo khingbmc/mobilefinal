@@ -163,7 +163,7 @@ class LoginScreen extends StatefulWidget{
                   print("${userid.text} and ${password.text}");
                   await isUserValid(userid.text, password.text);
                   if(!this.isvalid){
-                    Toast.show("Invalid user or password", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    Toast.show("Invalid user or password", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM, backgroundColor: Colors.blue,textColor: Colors.red);
                   }else{
                     Navigator.pushReplacementNamed(context, '/home');
                     userid.text = "";

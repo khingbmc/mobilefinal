@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 
+import 'friendtodo_screend.dart';
+
 class FriendScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -88,7 +90,7 @@ class FriendScreenState extends State<FriendScreen>{
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  // builder: (context) => MyfriendPage(id: values[index].id, name: values[index].name),
+                  builder: (context) => FriendTodoScreen(id: values[index].id),
                 ),
               );
             },

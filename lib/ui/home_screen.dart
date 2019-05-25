@@ -52,8 +52,9 @@ class HomeScreenState extends State<HomeScreen>{
           padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
           children: <Widget>[
             ListTile(
-              title: Text('Hello ${CurrentUser.NAME}'),
+              title: Text('Hello ${CurrentUser.NAME}', style: TextStyle(fontSize: 20),),
               subtitle: Text('this is my quote "${CurrentUser.QUOTE}"'),
+        
             ),
             RaisedButton(
               child: Text("PROFILE SETUP"),

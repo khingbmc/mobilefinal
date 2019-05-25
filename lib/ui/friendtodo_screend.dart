@@ -61,6 +61,7 @@ class FriendTodoScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             RaisedButton(
+              color: Colors.red,
               child: Text("BACK"),
               onPressed: (){
                 Navigator.pop(context);

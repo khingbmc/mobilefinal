@@ -184,7 +184,7 @@ class LoginScreen extends StatefulWidget{
             ),
             FlatButton(
               child: Container(
-                child: Text("Register New Account", textAlign: TextAlign.right),
+                child: Text("Register New Account", textAlign: TextAlign.right, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),),
               ),
               onPressed: (){
                 Navigator.of(context).pushNamed('/register');

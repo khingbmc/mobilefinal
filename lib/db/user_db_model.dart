@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 
 final String tableName = "user";
-final String columnId = "_id";
+final String columnId = "id";
 final String columnUserId = "userid";
 final String columnName = "name";
 final String columnAge = "age";
@@ -9,7 +9,7 @@ final String columnPassword = "password";
 final String columnQuote = "quote";
 
 class UserModel{
-  int _id;
+  int id;
   String userid;
   String name;
   String age;
@@ -19,16 +19,17 @@ class UserModel{
   UserModel();
 
   UserModel.formMap(Map<String, dynamic> map){
-    this._id = map[columnId];
+    this.id = map[columnId];
     this.userid = map[columnUserId];
     this.name = map[columnName];
     this.age = map[columnAge];
     this.password = map[columnPassword];
     this.quote = map[columnQuote];
   }
+
   @override
   String toString(){
-    return 'id: ${this._id}, userid:  ${this.userid}, name:  ${this.name}, age:  ${this.age}, password:  ${this.password}, quote:  ${this.quote}';
+    return 'id: ${this.id}, userid:  ${this.userid}, name:  ${this.name}, age:  ${this.age}, password:  ${this.password}, quote:  ${this.quote}';
   }
 
   Map<String, dynamic> mapping(){
@@ -39,8 +40,8 @@ class UserModel{
       columnAge: age,
       columnQuote: quote,
     };
-    if (_id != null){
-      map[columnId] = _id;
+    if (id != null){
+      map[columnId] = id;
     }
     return map;
   }
@@ -68,7 +69,7 @@ class UserUtils{
   }
 
   Future<UserModel> insertUser(UserModel user) async{
-    user._id = await db.insert(tableName, user.mapping());
+    user.id = await db.insert(tableName, user.mapping());
     return user;
   }
 
@@ -91,7 +92,7 @@ class UserUtils{
   }
 
   Future<int> updateUser(UserModel user) async{
-    return db.update(tableName, user.mapping(), where: '$columnId = ?', whereArgs: [user._id]);
+    return db.update(tableName, user.mapping(), where: '$columnId = ?', whereArgs: [user.id]);
   }
 
   Future<List<UserModel>> getAllUser() async{

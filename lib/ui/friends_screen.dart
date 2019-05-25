@@ -25,12 +25,15 @@ class FriendScreenState extends State<FriendScreen>{
       body: Container(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ButtonTheme(
+              minWidth:  MediaQuery.of(context).size.width,
+              child: RaisedButton(
               color: Colors.red,
               child: Text("BACK"),
               onPressed: (){
                 Navigator.of(context).pushReplacementNamed('/home');
               },
+            ),
             ),
             FutureBuilder(
               future: fetchUser(),

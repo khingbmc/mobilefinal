@@ -60,12 +60,15 @@ class FriendTodoScreen extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ButtonTheme(
+              minWidth:  MediaQuery.of(context).size.width,
+              child: RaisedButton(
               color: Colors.red,
               child: Text("BACK"),
               onPressed: (){
                 Navigator.pop(context);
               },
+            ),
             ),
             FutureBuilder(
               future: fetchTodos(this.id),
